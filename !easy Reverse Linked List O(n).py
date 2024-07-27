@@ -3,8 +3,6 @@ def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
 
     while head:
         cur = head.next
-        head.next = prev
-        prev = head
-        head = cur
+        head.next, prev, head = prev, head, cur
 
     return prev
