@@ -18,14 +18,10 @@ def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
             
         for _ in range(1, k):
             nxt = cur.next
-            cur.next = pre
-            pre = cur
-            cur = nxt
+            cur.next, pre, cur = pre, cur, nxt
 
-        node.next.next = nxt
-        tmp = node.next
-        node.next = pre
-        node = tmp
+        node.next.next, tmp = nxt, node.next
+        node.next, node = pre, tmp
 
         if switch:
             head, switch = pre, False
