@@ -2,14 +2,11 @@ def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
     node, copied = head, {None: None}
 
     while node:
-        copied[node] = Node(node.val)
-        node = node.next
+        copied[node], node = Node(node.val), node.next
 
     node = head
 
     while node:
-        copied[node].next = copied[node.next]
-        copied[node].random = copied[node.random]
-        node = node.next
+        copied[node].next, copied[node].random, node = copied[node.next], copied[node.random], node.next
 
     return copied[head]
