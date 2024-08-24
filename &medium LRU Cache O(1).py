@@ -18,12 +18,12 @@ class LRUCache:
 
     def get(self, key: int) -> int:
         if key in self.cache:
-            self.pop(self.cache[key][1])
-            self.push(self.cache[key][1])
+            return -1
+            
+        self.pop(self.cache[key][1])
+        self.push(self.cache[key][1])
 
-            return self.cache[key][0]
-
-        return -1
+        return self.cache[key][0]
 
     def put(self, key: int, value: int) -> None:
         if key in self.cache:
